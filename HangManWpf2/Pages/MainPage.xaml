@@ -1,0 +1,165 @@
+﻿<Page x:Class="WpfHangMan.Pages.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfHangMan.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="600"
+      Title="MainPage"
+      Loaded="Onload">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/WpfHangMan;component/img/2.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <Image Source="Kartuves.png"
+               Grid.Row="1"
+               Grid.Column="6"
+               Grid.RowSpan="1"
+               Grid.ColumnSpan="5"/>
+
+        <Rectangle Grid.Row="2"
+                   Grid.Column="5"
+                   Grid.RowSpan="11"
+                   Grid.ColumnSpan="7"
+                   HorizontalAlignment="Center"
+                   Height="400                   "
+                   Width="200"
+                   Margin="10,10,10,10"
+                   Stroke="Black"
+                   StrokeThickness="2"
+                   VerticalAlignment="Center" 
+                   RadiusY="13.5" RadiusX="13.5"/>
+
+        <Rectangle Grid.Row="4"
+                   Grid.Column="5"
+                   Grid.RowSpan="8"
+                   Grid.ColumnSpan="7"
+                   HorizontalAlignment="Center"
+                   Height="215"
+                   Width="175"
+                   Margin="10,10,10,10"
+                   Stroke="Black"
+                   StrokeThickness="2"
+                   VerticalAlignment="Center" 
+                   RadiusY="13.5" RadiusX="13.5"/>
+
+        <GroupBox Margin="10"
+                  Padding="10"
+                  Grid.Row="5"
+                  Grid.Column="6"
+                  Grid.ColumnSpan="5"
+                  Grid.RowSpan="6"
+                  BorderBrush="{x:Null}">
+
+            <StackPanel>
+                <RadioButton x:Name="RBtnActors"
+                             Margin="10,5,0,0"
+                             FontSize="16"
+                             Content="Aktoriai"/>
+                <RadioButton x:Name="RBtnFims"
+                             Margin="10,5,0,0"
+                             FontSize="16" 
+                             Content="Filmai"/>
+                <RadioButton x:Name="RBtnCountries"
+                             Margin="10,5,0,0" 
+                             FontSize="16"
+                             Content="Valstybės"/>
+                <RadioButton x:Name="RBtnLtAnimals"
+                             Margin="10,5,0,0"
+                             FontSize="16"
+                             Content="Lietuvos gyvūnai" />
+
+                <Button Margin="0,30                        "
+                        Content="Pradėti"
+                        FontSize="18"
+                        Cursor="Hand"
+                        MinWidth="40"
+                        MinHeight="30"
+                        Click="ButtonBeginClick"
+                        Background="Transparent"
+                        FontWeight="Bold"
+                        BorderBrush="#FF22B81B"/>
+
+            </StackPanel>
+        </GroupBox>
+
+        <TextBlock x:Name="UserNametxtBlock"
+                   Grid.Row="3"
+                   Grid.Column="6"
+                   Grid.ColumnSpan="5"
+                   Height="35"
+                   FontSize="18"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" 
+                   FontWeight="Bold"/>
+
+        <Label x:Name="TopicLabel"
+               Grid.Row="4"
+               Grid.Column="5"
+               Grid.ColumnSpan="7"
+               Height="35"
+               FontSize="18"
+               Content="Pasirinkte temą"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center" 
+               FontWeight="Bold"/>
+
+        <Button x:Name="ExitGame"
+                Grid.Row="11"
+                Grid.RowSpan="1"
+                Grid.Column="6"
+                Grid.ColumnSpan="5"
+                Cursor="Hand"
+                MinWidth="40"
+                MinHeight="30"
+                Margin="5"
+                FontSize="18"
+                Content="Išeiti iš žaidimo"
+                Click="OnExitButtonClick"
+                Background="Transparent"
+                FontWeight="Bold"
+                BorderBrush="#FFDC0C1F"/>
+
+    </Grid>
+</Page>

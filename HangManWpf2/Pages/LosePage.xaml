@@ -1,0 +1,146 @@
+﻿<Page x:Class="WpfHangMan.Pages.LosePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfHangMan.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="600"
+      Title="LosePage"
+      Loaded="Onload">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/WpfHangMan;component/img/2.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <Image Source="Kartuves.png"
+               Grid.Row="1"
+               Grid.Column="6"
+               Grid.RowSpan="1"
+               Grid.ColumnSpan="5"/>
+        
+        <Rectangle Grid.Row="2"
+                   Grid.Column="5"
+                   Grid.RowSpan="11"
+                   Grid.ColumnSpan="7"
+                   HorizontalAlignment="Center"
+                   Height="400                   "
+                   Width="200"
+                   Margin="10,10,10,10"
+                   Stroke="Black"
+                   StrokeThickness="2"
+                   VerticalAlignment="Center" 
+                   RadiusY="13.5" RadiusX="13.5"/>
+        <TextBlock x:Name="UserNametxtBlock"
+                   Grid.Row="3"
+                   Grid.Column="6"
+                   Grid.ColumnSpan="5"
+                   Height="35"
+                   FontSize="18"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center" 
+                   FontWeight="Bold"/>
+
+        <Label x:Name="LoseLabel"
+               Grid.Row="4"
+               Grid.Column="6"
+               Grid.ColumnSpan="5"
+               Height="35"
+               FontSize="18"
+               Content="Gaila, bet nepavyko."
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center" FontWeight="Bold" Foreground="#FFF95B5B"/>
+
+        <Label x:Name="RightWordLabel"
+               Grid.Row="5"
+               Grid.Column="6"
+               Grid.ColumnSpan="5"
+               Height="35"
+               FontSize="18"
+               Content="Atsakymas buvo:"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"/>
+
+        <TextBlock x:Name="RightWordtxtBlock"
+                   Grid.Row="6"
+                   Grid.Column="6"
+                   Grid.RowSpan="3"
+                   Grid.ColumnSpan="5"
+                   MaxWidth="190"
+                   FontSize="20"
+                   TextAlignment="Center"
+                   TextWrapping="Wrap"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontWeight="Bold"/>
+        
+        <Button x:Name="NewWord"
+                Grid.Row="10"
+                Grid.RowSpan="1"
+                Grid.Column="6"
+                Grid.ColumnSpan="5"
+                Cursor="Hand"
+                MinWidth="40"
+                MinHeight="30"
+                Margin="5"
+                FontSize="18"
+                Content="Naujas žodis"
+                Click="OnNewWordButtonClick"
+                Background="Transparent"
+                FontWeight="Bold"/>
+
+        <Button x:Name="MainMenu"
+                Grid.Row="11"
+                Grid.RowSpan="1"
+                Grid.Column="6"
+                Grid.ColumnSpan="5"
+                Cursor="Hand"
+                MinWidth="40"
+                MinHeight="30"
+                Margin="5"
+                FontSize="18"
+                Content="Pagrindinis meniu"
+                Click="OnMainPageButtonClick"
+                Background="Transparent"
+                FontWeight="Bold"/>
+    </Grid>
+</Page>

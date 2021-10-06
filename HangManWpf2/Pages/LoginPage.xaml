@@ -1,0 +1,122 @@
+﻿<Page x:Class="WpfHangMan.Pages.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfHangMan.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="600"
+      Title="LoginPage"
+      Loaded="Onload">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/WpfHangMan;component/img/2.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <Image Source="Kartuves.png"
+               Grid.Row="1"
+               Grid.Column="6"
+               Grid.RowSpan="2"
+               Grid.ColumnSpan="5"/>
+        
+        <Rectangle Grid.Row="3"
+                   Grid.Column="5"
+                   Grid.RowSpan="10"
+                   Grid.ColumnSpan="7"
+                   HorizontalAlignment="Center"
+                   Height="380"
+                   Width="200"
+                   Margin="10,10,10,10"
+                   Stroke="Black"
+                   StrokeThickness="2"
+                   VerticalAlignment="Center" 
+                   RadiusY="13.5" RadiusX="13.5"/>
+
+        <Label x:Name="CongratsLabel"
+               Grid.Row="4"
+               Grid.Column="6"
+               Grid.ColumnSpan="5"
+               Height="35"
+               FontSize="18"
+               Content="SVEIKI"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center" FontWeight="Bold" Foreground="#FF1E9C56"/>
+
+        <Label x:Name="LoginLabel"
+               Grid.Row="6"
+               Grid.Column="6"
+               Grid.ColumnSpan="5"
+               Height="35"
+               FontSize="18"
+               Content="Įveskite vardą"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"/>
+
+        <TextBox x:Name="LogintxtBox"
+                   Grid.Row="7                 "
+                   Grid.Column="6"
+                   Grid.RowSpan="2"
+                   Grid.ColumnSpan="5"
+                   Width="190"
+                   FontSize="20"
+                   TextAlignment="Center"
+                   TextWrapping="Wrap"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+
+        <Button x:Name="Login"
+                Grid.Row="11"
+                Grid.RowSpan="1"
+                Grid.Column="6"
+                Grid.ColumnSpan="5"
+                Cursor="Hand"
+                MinWidth="40"
+                MinHeight="30"
+                Margin="5"
+                FontSize="18"
+                Content="Tęsti"
+                Click="OnLoginButtonClick"
+                Background="Transparent"
+                FontWeight="Bold"/>
+
+    </Grid>
+</Page>
