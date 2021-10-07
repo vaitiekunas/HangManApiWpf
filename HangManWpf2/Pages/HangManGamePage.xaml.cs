@@ -77,6 +77,14 @@ namespace WpfHangMan
 
             NewWordBlock.Text = word; //********************sufleris********************
 
+            EncodeWord(chars);
+
+            _stopwatch.Start();
+            _timer.Start();
+        }
+
+        private void EncodeWord(char[] chars)
+        {
             foreach (char ch in chars)
             {
                 if (pressed.Contains(ch) || !Char.IsLetter(ch))
@@ -88,11 +96,8 @@ namespace WpfHangMan
                     WordBlock.Text += "?";
                 }
             }
-
-            _stopwatch.Start();
-            _timer.Start();
         }
-        
+
         private void OnTimerElapse(object sender, ElapsedEventArgs e)
         {
             Application.Current.Dispatcher.Invoke(() => TimerCountLabel.Content = _stopwatch.Elapsed.ToString(format: @"hh\:mm\:ss"));
@@ -123,61 +128,8 @@ namespace WpfHangMan
                     triesLeft--;
                     TriesLeftCountLabel.Content = Convert.ToString(triesLeft);
 
-                    switch (triesLeft)
-                    {
-                        case 0:
-                            HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h0t.png"));
-                            break;
-
-                        case 1:
-                            HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h1t.png"));
-                            break;
-
-                        case 2:
-                            HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h2t.png"));
-                            break;
-
-                        case 3:
-                            HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h3t.png"));
-                            break;
-
-                        case 4:
-                            HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h4t.png"));
-                            break;
-
-                        case 5:
-                            HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h5t.png"));
-                            break;
-
-                        case 6:
-                            HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h6t.png"));
-                            break;
-
-                        case 7:
-                            HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h7t.png"));
-                            break;
-
-                        case 8:
-                            HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h8t.png"));
-                            break;
-
-                        case 9:
-                            HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h9t.png"));
-                            break;
-
-                        case 10:
-                            HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h10t.png"));
-                            break;
-
-                        case 11:
-                            HangImg.Source = new BitmapImage(null);
-                            break;
-                    }
-
-                    if (triesLeft < 4)
-                    {
-                        TriesLeftCountLabel.Foreground = Brushes.Red;
-                    }
+                    DrawHangMan(triesLeft);
+                    BrushCountLabel(triesLeft);
 
                     if (triesLeft == 0)
                     {
@@ -198,17 +150,7 @@ namespace WpfHangMan
                     button.Background = Brushes.SeaGreen;
                     WordBlock.Text = "";
 
-                    foreach (char ch in chars)
-                    {
-                        if (pressed.Contains(ch) || !Char.IsLetter(ch))
-                        {
-                            WordBlock.Text += Convert.ToString(ch);
-                        }
-                        else
-                        {
-                            WordBlock.Text += "?";
-                        }
-                    }
+                    EncodeWord(chars);
 
                     if (!WordBlock.Text.Contains("?"))
                     {
@@ -235,6 +177,68 @@ namespace WpfHangMan
                         var response = _client.PostAsJsonAsync(recUrl, record);
                     }
                 }
+            }
+        }
+
+        private void BrushCountLabel(int triesLeft)
+        {
+            if (triesLeft < 4)
+            {
+                TriesLeftCountLabel.Foreground = Brushes.Red;
+            }
+        }
+
+        private void DrawHangMan(int triesLeft)
+        {
+            switch (triesLeft)
+            {
+                case 0:
+                    HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h0t.png"));
+                    break;
+
+                case 1:
+                    HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h1t.png"));
+                    break;
+
+                case 2:
+                    HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h2t.png"));
+                    break;
+
+                case 3:
+                    HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h3t.png"));
+                    break;
+
+                case 4:
+                    HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h4t.png"));
+                    break;
+
+                case 5:
+                    HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h5t.png"));
+                    break;
+
+                case 6:
+                    HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h6t.png"));
+                    break;
+
+                case 7:
+                    HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h7t.png"));
+                    break;
+
+                case 8:
+                    HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h8t.png"));
+                    break;
+
+                case 9:
+                    HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h9t.png"));
+                    break;
+
+                case 10:
+                    HangImg.Source = new BitmapImage(new Uri("D:/Desktop/Programavimo kursai/WpfHangMan/WpfHangMan/img/h10t.png"));
+                    break;
+
+                case 11:
+                    HangImg.Source = new BitmapImage(null);
+                    break;
             }
         }
 
